@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://yattim.smarttable.info/Students.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta property="og:title" content="Электронное расписание занятий для ВУЗов и СУЗов - SmartTable"><meta property="og:image" content="http://smarttable.info/Shared/img-preview.png">
+    <script async="" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/analytics.js.Без названия"></script><script type="text/javascript" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/openapi.js.Без названия"></script>
+    <script type="text/javascript">
+        VK.init({ apiId: 6215932, onlyWidgets: true });
+        VK.Widgets.Like("vk_like", { type: "button", pageUrl: "http://smarttable.info/" });
+    </script>
+    <script type="text/javascript" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/share.js.Без названия" charset="windows-1251"></script>
+    <title>Электронное расписание занятий SmartTable - ГПОУ "Яшкинский техникум технологий и механизации"</title><meta name="description" content="Электронное расписание занятий SmartTable - ГПОУ &quot;Яшкинский техникум технологий и механизации&quot;"><meta name="Keywords" content="SmartTable, Smart, Table, Электронное, Расписание, Занятий, Высших, Учебных, Заведений, Студентов, Веб, Сервис, Браузере, Составление, Электронное расписание занятий, Электронное расписание для ВУЗОВ, Электронное расписание для учебных заведений"><link href="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/css" rel="stylesheet" type="text/css"><link href="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/all.css" rel="stylesheet"><link href="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/SmartTablePublic.css" rel="stylesheet"><link href="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/all(1).css" rel="stylesheet">
+    </head>
+<body class="default">
+    
+    <div class="page-wrapper">
+        
+        <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-2.2.3.min.js.Без названия"></script>
+        <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-ui-1.11.4.min.js.Без названия"></script>
+        <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-ui-i18n.min.js.Без названия"></script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-42633458-2', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+        <script type="text/javascript">
+
+            /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+            function togglemenu() {
+                document.getElementById("dropdown-content").classList.toggle("show");
+                //document.getElementById("tooltiptext").style.display = 'none';
+            }
+
+            window.onclick = function (e) {
+
+                if (!e.target.matches('.buttonsettings')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+
+            var timer, pressed = false,
+                counterVal = 1;
+
+            var speachtarget, globaltarget;
+
+            function speak() {
+
+                var targetcell = globaltarget;
+                var texttospech = "";
+                var weekdays = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"]
+                var weekday = "";
+                var date = "";
+                var classnumber = "";
+                var time = "";
+                var subject = "";
+                var room = "";
+                var cutnumber = 27;
+
+
+                if (targetcell.id.includes("Aspirantura")) {
+                    cutnumber = 30;
+                }
+                if (targetcell.id.includes("Periods")) {
+                    cutnumber = 26;
+                }
+                if (targetcell.id.includes("Developments")) {
+                    cutnumber = 31;
+                }
+                if (targetcell.id.includes("Groups")) {
+                    cutnumber = 25;
+                }
+                if (targetcell.id.includes("Lecturers")) {
+                    cutnumber = 28;
+                }
+                if (targetcell.id.includes("ClassRooms")) {
+                    cutnumber = 29;
+                }
+
+
+
+                weekday = targetcell.id.substring(cutnumber) % 7;
+                date = targetcell.id.substring(cutnumber - 11, cutnumber - 1);
+                if (Math.ceil(targetcell.id.substring(cutnumber) / 7) == 0) {
+                    classnumber = Math.ceil(targetcell.id.substring(cutnumber) / 7) + 1;
+                }
+                else {
+                    classnumber = Math.ceil(targetcell.id.substring(cutnumber) / 7);
+                }
+
+                time = targetcell.childNodes[0].childNodes[0].innerHTML.replace('-', "до");
+
+                if ((targetcell.id.includes("Students")) || (targetcell.id.includes("Aspirantura")) || (targetcell.id.includes("Periods")) || (targetcell.id.includes("Groups"))) {
+                    subject = targetcell.childNodes[1].childNodes[0].childNodes[0].title;
+                    room = targetcell.childNodes[3].childNodes[0].childNodes[0].title;
+                }
+                if (targetcell.id.includes("Developments")) {
+                    room = targetcell.childNodes[2].childNodes[0].childNodes[0].title;
+                }
+                if ((targetcell.id.includes("Lecturers")) || (targetcell.id.includes("ClassRooms"))) {
+                    room = targetcell.childNodes[4].childNodes[0].childNodes[0].title;
+                    subject = targetcell.childNodes[2].childNodes[0].childNodes[0].title;
+                }
+
+
+
+                texttospech = weekdays[weekday] + '. Дата:' + date + '. ' + classnumber + '-я пара, с ' + time + '. Дисциплина: ' + subject + '. в аудитории ' + room;
+
+                var speachutterance = new SpeechSynthesisUtterance(texttospech);
+                speachutterance.lang = 'ru-RU';
+                var voices = window.speechSynthesis.getVoices();
+                speachutterance.voice = voices[0];
+                window.speechSynthesis.speak(speachutterance);
+            }
+
+            function counterStart() {
+
+                if (pressed == false && speechSynthesis.speaking == false) {
+                    pressed = true;
+
+                    var speachloader = document.getElementById("speachloader").classList.remove("hidden");
+
+                    timer = setInterval(function () {
+                        //console.log(counterVal++);
+                        counterVal++
+                        if (counterVal > 1) {
+                            //console.log('Speak');
+                            speak(speachtarget);
+                            clearInterval(timer);
+                        }
+
+                    }, 1000);
+                }
+
+            }
+
+            window.mobileCheck = function () {
+                let check = false;
+                (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+                return check;
+            };
+
+            function catchpressdownbuttonormouse(event) {
+                if (window.mobileCheck()) {
+                    return false;
+                }
+
+
+                if ((typeof event.target !== 'undefined') && (event.target.id.includes("_cellid")
+                    || (event.target.parentElement && event.target.parentElement.id.includes("_cellid"))
+                    || (event.target.parentElement && event.target.parentElement.parentElement && event.target.parentElement.parentElement.id.includes("_cellid"))
+                    || (event.target.parentElement && event.target.parentElement.parentElement && event.target.parentElement.parentElement.parentElement && event.target.parentElement.parentElement.parentElement.id.includes("_cellid")))) {
+
+                    speachtarget = event.target;
+                    spktarget = event.target;
+                    targetcell = event.target;
+
+                    if (spktarget.parentElement.id.includes("_cellid")) {
+                        targetcell = spktarget.parentElement;
+                    }
+                    if ((spktarget.parentElement.parentElement.id.includes("_cellid"))) {
+                        targetcell = spktarget.parentElement.parentElement;
+                    }
+                    if ((spktarget.parentElement.parentElement.parentElement.id.includes("_cellid"))) {
+                        targetcell = spktarget.parentElement.parentElement.parentElement;
+                    }
+
+
+
+                    globaltarget = targetcell;
+
+                    if (spktarget.childNodes.length != 0) {
+                        targetcell.classList.add('blur');
+                        counterStart();
+                    }
+                    targetcell.oncontextmenu = function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        return false;
+                    };
+                    targetcell.onselectstart = function () {
+                        return false;
+                    };
+                }
+            }
+
+            window.onmousedown = function (event) {
+                catchpressdownbuttonormouse(event);
+            }
+
+            window.ontouchstart = function (event) {
+                catchpressdownbuttonormouse(event);
+            }
+
+            window.onmouseup = function () {
+                catchenddownbuttonormouse();
+            }
+            window.ontouchend = function () {
+                catchenddownbuttonormouse();
+            }
+
+            function catchenddownbuttonormouse() {
+                //console.log('Timer stoped');
+                clearInterval(timer);
+                pressed = false;
+                counterVal = 0;
+                var speachloader = document.getElementById("speachloader").classList.add("hidden");
+                if (typeof globaltarget !== 'undefined' && globaltarget) {
+                    globaltarget.classList.remove('blur');
+                    globaltarget = null;
+                }
+            }
+
+
+        </script>
+
+        <script type="text/javascript">
+            var str, pagetype;
+            //On Page Load.
+            $(function () {
+                $("#TextBoxSmartSearch").attr("placeholder", "Поиск...").focus().blur();
+                $('#TextBoxSmartSearch').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "Students.aspx/SmartSearch",
+                            data: "{ 'SearchString':'" + request.term + "'}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                response($.map(data.d, function (item) {
+                                    return {
+                                        label: item.Value,
+                                        value: item.Key
+                                    }
+                                }))
+
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert('Не пиши \\');
+                            }
+                        });
+                    },
+                    select: function (event, ui) {
+                        str = String(ui.item.value);
+                        pagetype = str.substring(0, 1);
+                        switch (pagetype) {
+                            case "1": window.location = '/Lecturers.aspx?Teacher_id=' + str.substring(1, str.length); break;
+                            case "2": window.location = '/ClassRooms.aspx?Rooms_id=' + str.substring(1, str.length); break;
+                            case "3": window.location = '/Groups.aspx?Groups_id=' + str.substring(1, str.length); break;
+                        }
+                        return false;
+                    },
+                    focus: function (event, ui) {
+                        $('#TextBoxSmartSearch').val(ui.item.label);
+                        return false;
+                    },
+                    change: function (event, ui) {
+                        if (!ui.item) {
+                            this.value = '';
+                        }
+                    },
+                    open: function () {
+                        $(this).data("uiAutocomplete").menu.element.addClass("autocompletelist");
+                    },
+                    position: { my: "left top", at: "left bottom", collision: "flip" }
+                })
+                //.autocomplete("instance")._renderItem = function (ul, item) {
+                //    var cssclasstile;
+                //    if (typeof (item) != "undefined") { return;}
+                //    if (item.value == "Группы" || item.value == "Преподаватели" || item.value == "Аудитории") {
+                //        cssclasstile = "ui-autocomplete-category"
+                //    }
+                //    else
+                //    { cssclasstile = "" }
+                //    if (cssclasstile == "ui-autocomplete-category") {
+                //        return $("<div class='" + cssclasstile + "' >" + item.label + "</div>").appendTo(ul)
+                //    }
+                //    return $("<li>")
+                //      .append("<div class='" + cssclasstile + "' >" + item.label + "</div>")
+                //      .appendTo(ul).addClass(cssclasstile);
+                //};
+                $("#TextBoxSmartSearch").autocomplete('instance')._renderMenu = function (ul, items) {
+                    var that = this;
+                    $.each(items, function (index, item) {
+                        var newitem = item;
+                        if (typeof (item) != "undefined" && (item.value == "Группы" || item.value == "Преподаватели" || item.value == "Аудитории")) {
+                            ul.append("<li class='ui-autocomplete-category'>" + item.label + "</li>");
+                        }
+                        else {
+                            that._renderItemData(ul, item);
+                        }
+                    });
+                }
+            });
+        </script>
+
+
+
+        <form method="post" action="http://yattim.smarttable.info/Students.aspx" id="ctl01">
+<div class="aspNetHidden">
+
+
+
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl01'];
+if (!theForm) {
+    theForm = document.ctl01;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/ScriptResource(1).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	
+	
+	
+</div>
+            <a class="promobuttona" id="smarttable.info" href="http://smarttable.info/" target="_blank">
+                <div class="promobutton">Стать партнером</div>
+            </a>
+            <div class="socialbutton">
+                <script type="text/javascript">
+                    document.write(VK.Share.button(false, { type: "custom", image: "http://ksai.smarttable.info/Shared/smart_table_logo.png", title: "Электронное расписание занятий для ВУЗов и СУЗов - SmartTable", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"18\" height=\"18\" />" }));
+                </script><a href="https://vk.com/share.php?url=http%3A%2F%2Fyattim.smarttable.info%2FStudents.aspx" onmouseup="this._btn=event.button;this.blur();" onclick="return VK.Share.click(0, this);" style="display: inline-block;text-decoration: none;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;"><span style="position: relative;padding: 0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;"><img src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/share_32.png" width="18" height="18"></span></a>
+            </div>
+            <div class="header">
+                <div class="divlogo">
+                    <a href="http://yattim.smarttable.info/Students.aspx">
+                        <img class="imglogo" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/smart_table_logo.png"></a>
+                    
+                    <div class="divorginfo">
+                        <span id="LabelSmartTableTitle" class="smarttabletitle">ЭЛЕКТРОННОЕ РАСПИСАНИЕ</span>
+                        <div>
+                            <span id="LabelTitle" title="652010, Кемеровская область, пгт.Яшкино, ул.Комарова, 24" class="orginfotitletext">ГПОУ "Яшкинский техникум технологий и механизации"</span>
+                            <a id="HyperLinkImgLogoVuz" title="yattim.ru" class="tmode" href="http://yattim.ru/">
+                        <img class="imglogovuz" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/yattim.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="speachloader" class="lds-default hidden">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <ul class="navbarmenu">
+                        <li><a id="menu-item-students" href="http://yattim.smarttable.info/Students.aspx" class="active">Расписание</a></li>
+                        <li><a id="menu-item-aspirantura" href="http://yattim.smarttable.info/Aspirantura.aspx">Аспирантура</a></li>
+                        <li><a id="menu-item-periods" href="http://yattim.smarttable.info/Periods.aspx">Курсы</a></li>
+                        <li><a id="menu-item-developments" href="http://yattim.smarttable.info/Developments.aspx">Мероприятия</a></li>
+                        <li class="dropdown">
+                            <div id="vk_like" class="tmode" style="width: 180px; height: 22px; background: none; position: relative; clear: both;"><iframe name="fXD75a1e" frameborder="0" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/widget_like.html" width="100%" height="22" scrolling="no" id="vkwidget1" style="overflow: hidden; height: 22px; width: 180px; z-index: 150;"></iframe></div>
+                            <input name="ctl00$TextBoxSmartSearch" type="text" id="TextBoxSmartSearch" class="textboxsearchmenu ui-autocomplete-input" placeholder="Поиск..." autocomplete="off">
+                            <a class="apublic" id="menu-item-default" href="http://yattim.smarttable.info/students.aspx" target="_blank">
+                                <div class="buttonpublic"></div>
+                            </a>
+                            <div class="tooltip">
+                                <div class="buttonsettings" onclick="togglemenu()"></div>
+                            </div>
+                            <div id="dropdown-content" class="dropdown-content">
+                                <a id="menu-item-lecturers" href="http://yattim.smarttable.info/Lecturers.aspx">Преподаватели</a>
+                                <a id="menu-item-classrooms" href="http://yattim.smarttable.info/ClassRooms.aspx">Аудитории</a>
+                                <a id="menu-item-groups" href="http://yattim.smarttable.info/Groups.aspx">Группы</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                
+    
+    <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-2.2.3.min.js.Без названия"></script>
+    <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-ui-1.11.4.min.js.Без названия"></script>
+    <script src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/jquery-ui-i18n.min.js.Без названия"></script>
+    <script type="text/javascript">
+        document.getElementById("menu-item-students").classList.add("active");
+    </script>
+
+    <script type="text/javascript">
+
+        function showteacherssearch() {
+            $("#Students_LabelTeachers").hide(0);
+        }
+
+        window.onload = function () {
+
+            $("#Students_RadioButtonListFulltime_1").attr("checked", true);
+
+            document.body.onclick = function (e) {
+                e = e || event;
+                target = e.target || e.srcElement;
+
+                ////Выбор списка групп в расписании
+                if (target.id.includes("ListViewTables_LinkButtonNameOdd")) {
+                    document.getElementById("blockfaculty").style.display = "none";
+                    document.getElementById("blockmodeofstudy").style.display = "none";
+                    window.scrollTo(0, 0);
+                }
+                if (target.id.includes("ListViewTables_LinkButtonNameEven")) {
+                    document.getElementById("blockfaculty").style.display = "none";
+                    document.getElementById("blockmodeofstudy").style.display = "none";
+                    window.scrollTo(0, 0);
+                }
+
+                if ((target.id == "Students_ButtonTablesBack")) {
+                    document.getElementById("blockfaculty").style.display = "";
+                    document.getElementById("blockmodeofstudy").style.display = "";
+                    showteacherssearch();
+                }
+            }
+        }
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$Students$ctl00', 'ctl01', ['tctl00$Students$UpdatePanelTeachersName','Students_UpdatePanelTeachersName','tctl00$Students$UpdatePanelFormViewFulltime','Students_UpdatePanelFormViewFulltime'], ['ctl00$Students$ListViewTables','Students_ListViewTables','ctl00$Students$RadioButtonListFulltime','Students_RadioButtonListFulltime','ctl00$Students$DropDownListFaculty','Students_DropDownListFaculty'], [], 90, 'ctl00');
+//]]>
+</script>
+
+    
+    <script type="text/javascript">
+        Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {    
+            $.datepicker.setDefaults(
+                $.extend($.datepicker.regional["ru"]));
+
+            $(".textboxformviewdate").datepicker({ dateFormat: 'd MM yy' }).val();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        var str;
+        //On Page Load.
+        $(function () {
+            SetAutoComplete();
+        });
+
+        //On UpdatePanel Refresh.
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        if (prm != null) {
+            prm.add_endRequest(function (sender, e) {
+                if (sender._postBackSettings.panelsToUpdate != null) {
+                    SetAutoComplete();
+                    var curentcell = $(".currentdaycell");
+                    curentcell.on("touchstart", function (e) {
+                        catchpressdownbuttonormouse(e);
+                    });
+                    curentcell.on("touchend", function (e) {
+                        catchenddownbuttonormouse();
+                    });
+                    var cell = $(".fulltimetablescels");
+                    cell.on("touchstart", function (e) {
+                        catchpressdownbuttonormouse(e);
+                    });
+                    cell.on("touchend", function (e) {
+                        catchenddownbuttonormouse();
+                    });
+                }
+            });
+        };
+
+        function SetAutoComplete() {
+            $("#Fulltime_tbsubjects").attr("placeholder", "Дисциплина...").focus().blur();
+            $('#Fulltime_tbsubjects').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "Fulltime.aspx/GetListSubjects",
+                        data: "{ 'ListsStringSubjects':'" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.Value,
+                                    value: item.Key
+                                }
+                            }))
+
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert('Не пиши \\');
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $('#Fulltime_tbsubjects').val(ui.item.label);
+                    $('#Fulltime_hfsubjectsid').val(ui.item.value);
+                    return false;
+                },
+                focus: function (event, ui) {
+                    $('#Fulltime_tbsubjects').val(ui.item.label);
+                    $('#Fulltime_hfsubjectsid').val(ui.item.value);
+                    return false;
+                },
+                change: function (event, ui) {
+                    if (!ui.item) {
+                        this.value = '';
+                    }
+                },
+                open: function () {
+                    $(this).data("uiAutocomplete").menu.element.addClass("autocompletelist");
+                }
+            })
+
+            $('input').focus(function () {
+                str = $(this).parent().closest('td').attr("id");
+            })
+            $("#Fulltime_tbrooms").attr("placeholder", "Аудитория...").focus().blur();
+            $('#Fulltime_tbrooms').autocomplete({
+                source: function (request, response) {
+                    var Day = str.substring(27) % 7;
+                    if (Day == 0) { Day = 7; }
+                    var ClassNumber = parseInt((str.substring(27) / 7) + 1);
+                    if (Day == 7) { ClassNumber -= 1; }
+                    var NewDate = str.substring(16, 26);
+                    var js = $('#Fulltime_ddlstype option:selected').text();
+                    $.ajax({
+                        url: "Fulltime.aspx/GetListRooms",
+                        data: "{ 'ListsStringRooms':'" + request.term + "', 'NewDate':'" + NewDate + "', 'Day':'" + Day + "', 'ClassNumber':'" + ClassNumber + "', 'js':'" + js + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.Value,
+                                    value: item.Key
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert('Не пиши \\');
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $('#Fulltime_tbrooms').val(ui.item.label);
+                    $('#Fulltime_hfroomsid').val(ui.item.value);
+                    return false;
+                },
+                focus: function (event, ui) {
+                    $('#Fulltime_tbrooms').val(ui.item.label);
+                    $('#Fulltime_hfroomsid').val(ui.item.value);
+                    return false;
+                },
+                change: function (event, ui) {
+                    if (!ui.item) {
+                        this.value = '';
+                    }
+                },
+                open: function () {
+                    $(this).data("uiAutocomplete").menu.element.addClass("autocompletelist");
+                }
+            })
+            $("#Fulltime_tbteachers").attr("placeholder", "Ф.И.О...").focus().blur();
+            $('#Fulltime_tbteachers').autocomplete({
+                source: function (request, response) {
+                    var Day = str.substring(27) % 7;
+                    if (Day == 0) { Day = 7; }
+                    var ClassNumber = parseInt((str.substring(27) / 7) + 1);
+                    if (Day == 7) { ClassNumber -= 1; }
+                    var NewDate = str.substring(16, 26);
+                    var js = $('#Fulltime_ddlstype option:selected').text();
+                    $.ajax({
+                        url: "Fulltime.aspx/GetListTeachers",
+                        data: "{ 'ListsStringTeachers':'" + request.term + "', 'NewDate':'" + NewDate + "', 'Day':'" + Day + "', 'ClassNumber':'" + ClassNumber + "', 'js':'" + js + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.Value,
+                                    value: item.Key
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert('Не пиши \\');
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $('#Fulltime_tbteachers').val(ui.item.label);
+                    $('#Fulltime_hfteachersid').val(ui.item.value);
+                    return false;
+                },
+                focus: function (event, ui) {
+                    $('#Fulltime_tbteachers').val(ui.item.label);
+                    $('#Fulltime_hfteachersid').val(ui.item.value);
+                    return false;
+                },
+                change: function (event, ui) {
+                    if (!ui.item) {
+                        this.value = '';
+                    }
+                },
+                open: function () {
+                    $(this).data("uiAutocomplete").menu.element.addClass("autocompletelist");
+                }
+            })
+        };
+    </script>
+    
+    
+    <div id="divsearch" class="divsearch">
+        <div id="blockmodeofstudy" class="blockteachers">
+            <span id="Students_RadioButtonListFulltime" title="форма обучения"><input id="Students_RadioButtonListFulltime_0" type="radio" name="ctl00$Students$RadioButtonListFulltime" value="2" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$Students$RadioButtonListFulltime$0\&#39;,\&#39;\&#39;)&#39;, 0)"><label for="Students_RadioButtonListFulltime_0">заочная</label><input id="Students_RadioButtonListFulltime_1" type="radio" name="ctl00$Students$RadioButtonListFulltime" value="1" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$Students$RadioButtonListFulltime$1\&#39;,\&#39;\&#39;)&#39;, 0)" checked="checked"><label for="Students_RadioButtonListFulltime_1">очная</label></span>
+        </div>
+        <div id="blockfaculty" class="blockfaculty">
+            <span id="Students_LabelFaculty" class="labelformviewtitlesearch">Факультет:</span>
+            <select name="ctl00$Students$DropDownListFaculty" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$Students$DropDownListFaculty\&#39;,\&#39;\&#39;)&#39;, 0)" id="Students_DropDownListFaculty" class="dropdownlistfaculty">
+	<option selected="selected" value="3">ППКРС</option>
+	<option value="1">ППССЗ</option>
+
+</select>
+        </div>
+        <div id="Students_UpdatePanelTeachersName">
+                <div id="divlabelteachers" class="divteacherssearch">
+                    <span id="Students_LabelTeachers">2020 - 2021 учебный год</span>
+                </div>
+            </div>
+    </div>
+    
+    <div id="Students_UpdatePanelFormViewFulltime">
+            
+            
+            
+            <div id="Students_PanelTables" class="panelfulltimesmarttables">
+	
+                <div id="speachpromo" class="speachpromo">
+                    Нажми и держи
+                <i class="fas fa-volume-up fa-rotate-90 fa-lg speachpromoicon"></i>
+                </div>
+                <input type="submit" name="ctl00$Students$ButtonTablesBack" value="Назад" id="Students_ButtonTablesBack" class="fulltimepaneltablesbuttontablesback">
+                <div id="blockweeks" class="blockweeks">
+                    <span id="Students_LabelWeaks" class="labelformviewtitleweaks">Неделя:</span>
+                    <select name="ctl00$Students$DropDownListWeeks" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$Students$DropDownListWeeks\&#39;,\&#39;\&#39;)&#39;, 0)" id="Students_DropDownListWeeks" class="dropdownlistweeksstudents">
+		<option value="1">1-я неделя: 31.08.2020 - 06.09.2020 (нечетная)</option>
+		<option value="2">2-я неделя: 07.09.2020 - 13.09.2020 (четная)</option>
+		<option value="3">3-я неделя: 14.09.2020 - 20.09.2020 (нечетная)</option>
+		<option value="4">4-я неделя: 21.09.2020 - 27.09.2020 (четная)</option>
+		<option value="5">5-я неделя: 28.09.2020 - 04.10.2020 (нечетная)</option>
+		<option value="6">6-я неделя: 05.10.2020 - 11.10.2020 (четная)</option>
+		<option value="7">7-я неделя: 12.10.2020 - 18.10.2020 (нечетная)</option>
+		<option value="8">8-я неделя: 19.10.2020 - 25.10.2020 (четная)</option>
+		<option selected="selected" value="9">23-я неделя: 01.02.2021 - 07.02.2021 (нечетная)</option>
+		<option value="10">10-я неделя: 02.11.2020 - 08.11.2020 (четная)</option>
+		<option value="11">11-я неделя: 09.11.2020 - 15.11.2020 (нечетная)</option>
+		<option value="12">12-я неделя: 16.11.2020 - 22.11.2020 (четная)</option>
+		<option value="13">13-я неделя: 23.11.2020 - 29.11.2020 (нечетная)</option>
+		<option value="14">14-я неделя: 30.11.2020 - 06.12.2020 (четная)</option>
+		<option value="15">15-я неделя: 07.12.2020 - 13.12.2020 (нечетная)</option>
+		<option value="16">16-я неделя: 14.12.2020 - 20.12.2020 (четная)</option>
+		<option value="17">17-я неделя: 21.12.2020 - 27.12.2020 (нечетная)</option>
+		<option value="18">18-я неделя: 28.12.2020 - 03.01.2021 (четная)</option>
+		<option value="19">19-я неделя: 04.01.2021 - 10.01.2021 (нечетная)</option>
+		<option value="20">20-я неделя: 11.01.2021 - 17.01.2021 (четная)</option>
+		<option value="21">21-я неделя: 18.01.2021 - 24.01.2021 (нечетная)</option>
+		<option value="22">22-я неделя: 25.01.2021 - 31.01.2021 (четная)</option>
+		<option value="23">23-я неделя: 01.02.2021 - 07.02.2021 (нечетная)</option>
+		<option value="24">24-я неделя: 08.02.2021 - 14.02.2021 (четная)</option>
+		<option value="25">25-я неделя: 15.02.2021 - 21.02.2021 (нечетная)</option>
+		<option value="26">26-я неделя: 22.02.2021 - 28.02.2021 (четная)</option>
+		<option value="27">27-я неделя: 01.03.2021 - 07.03.2021 (нечетная)</option>
+		<option value="28">28-я неделя: 08.03.2021 - 14.03.2021 (четная)</option>
+		<option value="29">29-я неделя: 15.03.2021 - 21.03.2021 (нечетная)</option>
+		<option value="30">30-я неделя: 22.03.2021 - 28.03.2021 (четная)</option>
+		<option value="31">31-я неделя: 29.03.2021 - 04.04.2021 (нечетная)</option>
+		<option value="32">32-я неделя: 05.04.2021 - 11.04.2021 (четная)</option>
+		<option value="33">33-я неделя: 12.04.2021 - 18.04.2021 (нечетная)</option>
+		<option value="34">34-я неделя: 19.04.2021 - 25.04.2021 (четная)</option>
+		<option value="35">35-я неделя: 26.04.2021 - 02.05.2021 (нечетная)</option>
+		<option value="36">36-я неделя: 03.05.2021 - 09.05.2021 (четная)</option>
+		<option value="37">37-я неделя: 10.05.2021 - 16.05.2021 (нечетная)</option>
+		<option value="38">38-я неделя: 17.05.2021 - 23.05.2021 (четная)</option>
+		<option value="39">39-я неделя: 24.05.2021 - 30.05.2021 (нечетная)</option>
+		<option value="40">40-я неделя: 31.05.2021 - 06.06.2021 (четная)</option>
+		<option value="41">41-я неделя: 07.06.2021 - 13.06.2021 (нечетная)</option>
+		<option value="42">42-я неделя: 14.06.2021 - 20.06.2021 (четная)</option>
+		<option value="43">43-я неделя: 21.06.2021 - 27.06.2021 (нечетная)</option>
+		<option value="44">44-я неделя: 28.06.2021 - 04.07.2021 (четная)</option>
+		<option value="45">45-я неделя: 05.07.2021 - 11.07.2021 (нечетная)</option>
+		<option value="46">46-я неделя: 12.07.2021 - 18.07.2021 (четная)</option>
+		<option value="47">47-я неделя: 19.07.2021 - 25.07.2021 (нечетная)</option>
+		<option value="48">48-я неделя: 26.07.2021 - 01.08.2021 (четная)</option>
+
+	</select>
+                </div>
+
+                
+                <table id="Students_TableSmartTables" class="tablesmarttables">
+		<tbody><tr class="tableheaderrow">
+			<th class="classgroupcol">Группы:</th><th class="currentdayhead">№ п/п</th><th>Понедельник<div class="divdate">(01.02.2021)</div></th><th>Вторник<div class="divdate">(02.02.2021)</div></th><th>Среда<div class="divdate">(03.02.2021)</div></th><th>Четверг<div class="divdate">(04.02.2021)</div></th><th>Пятница<div class="divdate">(05.02.2021)</div></th><th>Суббота<div class="divdate">(06.02.2021)</div></th><th>Воскресенье<div class="divdate">(07.02.2021)</div></th>
+		</tr><tr id="Students_TableRow1">
+			<td class="classgroupscol" rowspan="8">
+                            <div class="fulltimelistviewgroups">
+
+                                
+                                
+                                        <div id="Students_ListViewGroups_itemPlaceholderContainer" class="listviewgroups" style="">
+                                            
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_0" class="active" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl0$LinkButtonNameGroups&#39;,&#39;&#39;)">ЭКТ-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_1" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl1$LinkButtonNameGroups&#39;,&#39;&#39;)">Т-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_2" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl2$LinkButtonNameGroups&#39;,&#39;&#39;)">ПК-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_3" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl3$LinkButtonNameGroups&#39;,&#39;&#39;)">К-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_4" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl4$LinkButtonNameGroups&#39;,&#39;&#39;)">СВ-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_5" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl5$LinkButtonNameGroups&#39;,&#39;&#39;)">ЭКТ-19, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_6" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl6$LinkButtonNameGroups&#39;,&#39;&#39;)">Т-19, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_7" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl7$LinkButtonNameGroups&#39;,&#39;&#39;)">ПК-19, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_8" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl8$LinkButtonNameGroups&#39;,&#39;&#39;)">К-19, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_9" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl9$LinkButtonNameGroups&#39;,&#39;&#39;)">СВ-19, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_10" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl10$LinkButtonNameGroups&#39;,&#39;&#39;)">ТА-181, 3 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_11" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl11$LinkButtonNameGroups&#39;,&#39;&#39;)">Т-182, 3 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_12" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl12$LinkButtonNameGroups&#39;,&#39;&#39;)">ПК-183, 3 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_13" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl13$LinkButtonNameGroups&#39;,&#39;&#39;)">К-184, 3 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_14" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl14$LinkButtonNameGroups&#39;,&#39;&#39;)">СВ-185, 3 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_15" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl15$LinkButtonNameGroups&#39;,&#39;&#39;)">М-3, 4 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_16" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl16$LinkButtonNameGroups&#39;,&#39;&#39;)">ТО-2, 4 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_17" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl17$LinkButtonNameGroups&#39;,&#39;&#39;)">ПК-1, 4 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewitemtemplategroups">
+                                                <div class="divlistviewitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_18" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl18$LinkButtonNameGroups&#39;,&#39;&#39;)">ШТ-20, 1 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        <span style="">
+                                            <div class="divlistviewalternatingitemtemplategroups">
+                                                <div class="divlistviewalternatingitemtemplategroupslabel">
+                                                    
+                                                    <a id="Students_ListViewGroups_LinkButtonNameGroups_19" href="javascript:__doPostBack(&#39;ctl00$Students$ListViewGroups$ctrl19$LinkButtonNameGroups&#39;,&#39;&#39;)">ШВ-196, 2 курс</a>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    
+                                        </div>
+                                    
+                            </div>
+                        </td>
+		</tr><tr id="Students_TableRow2">
+			<td class="classnumbercol">1</td><td id="Students_cellid_26.10.2020_1" class="fulltimetablescels"><span id="Students_lbtt_8"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_8"><div class="lbsubjects"><abbr title="Физическая культура">Физическая культура</abbr></div></span><span id="Students_lbstype_8"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_8"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_8"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_8"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_8"><div class="lbteachers"><abbr title="Романович Денис Валерьевич">Романович Д. В.</abbr></div></span><span id="Students_lbsubgroup_8"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_27.10.2020_2" class="fulltimetablescels"><span id="Students_lbtt_10"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_10"><div class="lbsubjects"><abbr title="Русский язык">Русский язык</abbr></div></span><span id="Students_lbstype_10"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_10"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_10"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_10"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_10"><div class="lbteachers"><abbr title="Александрова Светлана Валерьевна">Александрова С. В.</abbr></div></span><span id="Students_lbsubgroup_10"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_28.10.2020_3" class="fulltimetablescels"><span id="Students_lbtt_4"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_4"><div class="lbsubjects"><abbr title="Родная литература (русская)">Родная литература</abbr></div></span><span id="Students_lbstype_4"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_4"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_4"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_4"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_4"><div class="lbteachers"><abbr title="Александрова Светлана Валерьевна">Александрова С. В.</abbr></div></span><span id="Students_lbsubgroup_4"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_29.10.2020_4" class="fulltimetablescels"><span id="Students_lbtt_5"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_5"><div class="lbsubjects"><abbr title="Физика">Физика</abbr></div></span><span id="Students_lbstype_5"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_5"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_5"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_5"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_5"><div class="lbteachers"><abbr title="Гаджиева Шайма Ахмедовна">Гаджиева Ш. А.</abbr></div></span><span id="Students_lbsubgroup_5"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_30.10.2020_5" class="fulltimetablescels"><span id="Students_lbtt_1"><div class="lbtt">00:00 - 10:00</div></span><span id="Students_lbsubjects_1"><div class="lbsubjects"><abbr title="Математика: алгебра и начала математического анализа, геометрия">Математика</abbr></div></span><span id="Students_lbstype_1"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_1"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_1"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_1"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_1"><div class="lbteachers"><abbr title="Майер Владимир Сергеевич">Майер В. С.</abbr></div></span><span id="Students_lbsubgroup_1"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_31.10.2020_6" class="fulltimetablescels"><span id="Students_lbtt_6"><div class="lbtt">08:30 - 09:50</div></span><span id="Students_lbsubjects_6"><div class="lbsubjects"><abbr title="История">История</abbr></div></span><span id="Students_lbstype_6"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_6"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_6"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_6"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_6"><div class="lbteachers"><abbr title="Попова Галина Николаевна">Попова Г. Н.</abbr></div></span><span id="Students_lbsubgroup_6"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_01.11.2020_7" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow3" class="tableeven">
+			<td class="classnumbercol">2</td><td id="Students_cellid_26.10.2020_8" class="fulltimetablescels"><span id="Students_lbtt_13"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_13"><div class="lbsubjects"><abbr title="Химия">Химия</abbr></div></span><span id="Students_lbstype_13"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_13"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_13"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_13"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_13"><div class="lbteachers"><abbr title="Петрученко Алина Игоревна">Петрученко А. И.</abbr></div></span><span id="Students_lbsubgroup_13"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_27.10.2020_9" class="fulltimetablescels"><span id="Students_lbtt_2"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_2"><div class="lbsubjects"><abbr title="Математика: алгебра и начала математического анализа, геометрия">Математика</abbr></div></span><span id="Students_lbstype_2"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_2"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_2"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_2"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_2"><div class="lbteachers"><abbr title="Майер Владимир Сергеевич">Майер В. С.</abbr></div></span><span id="Students_lbsubgroup_2"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_28.10.2020_10" class="fulltimetablescels"><span id="Students_lbtt_11"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_11"><div class="lbsubjects"><abbr title="Физика">Физика</abbr></div></span><span id="Students_lbstype_11"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_11"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_11"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_11"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_11"><div class="lbteachers"><abbr title="Гаджиева Шайма Ахмедовна">Гаджиева Ш. А.</abbr></div></span><span id="Students_lbsubgroup_11"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_29.10.2020_11" class="fulltimetablescels"><span id="Students_lbtt_9"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_9"><div class="lbsubjects"><abbr title="Основы безопасности жизнедеятельности">ОБЖ</abbr></div></span><span id="Students_lbstype_9"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_9"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_9"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_9"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_9"><div class="lbteachers"><abbr title="Романович Денис Валерьевич">Романович Д. В.</abbr></div></span><span id="Students_lbsubgroup_9"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_30.10.2020_12" class="fulltimetablescels"><span id="Students_lbtt_7"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_7"><div class="lbsubjects"><abbr title="Астрономия">Астрономия</abbr></div></span><span id="Students_lbstype_7"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_7"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_7"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_7"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_7"><div class="lbteachers"><abbr title="Гаджиева Шайма Ахмедовна">Гаджиева Ш. А.</abbr></div></span><span id="Students_lbsubgroup_7"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_31.10.2020_13" class="fulltimetablescels"><span id="Students_lbtt_12"><div class="lbtt">10:00 - 11:20</div></span><span id="Students_lbsubjects_12"><div class="lbsubjects"><abbr title="Родная литература (русская)">Родная литература</abbr></div></span><span id="Students_lbstype_12"><div class="lbstype"><abbr title="Диф.зачет">Диф.зачет</abbr></div></span><span id="Students_lbrooms_12"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_12"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_12"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_12"><div class="lbteachers"><abbr title="Александрова Светлана Валерьевна">Александрова С. В.</abbr></div></span><span id="Students_lbsubgroup_12"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_01.11.2020_14" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow4">
+			<td class="classnumbercol">3</td><td id="Students_cellid_26.10.2020_15" class="fulltimetablescels"><span id="Students_lbtt_17"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_17"><div class="lbsubjects"><abbr title="Иностранный язык">Иностранный язык</abbr></div></span><span id="Students_lbstype_17"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_17"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_17"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_17"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_17"><div class="lbteachers"><abbr title="Ледовских Людмила Адамовна">Ледовских Л. А.</abbr></div></span><span id="Students_lbsubgroup_17"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_27.10.2020_16" class="fulltimetablescels"><span id="Students_lbtt_16"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_16"><div class="lbsubjects"><abbr title="Информатика">Информатика</abbr></div></span><span id="Students_lbstype_16"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_16"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_16"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_16"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_16"><div class="lbteachers"><abbr title="Поклад Олег Александрович">Поклад О. А.</abbr></div></span><span id="Students_lbsubgroup_16"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_28.10.2020_17" class="fulltimetablescels"><span id="Students_lbtt_3"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_3"><div class="lbsubjects"><abbr title="Математика: алгебра и начала математического анализа, геометрия">Математика</abbr></div></span><span id="Students_lbstype_3"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_3"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_3"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_3"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_3"><div class="lbteachers"><abbr title="Майер Владимир Сергеевич">Майер В. С.</abbr></div></span><span id="Students_lbsubgroup_3"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_29.10.2020_18" class="fulltimetablescels"><span id="Students_lbtt_15"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_15"><div class="lbsubjects"><abbr title="Иностранный язык">Иностранный язык</abbr></div></span><span id="Students_lbstype_15"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_15"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_15"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_15"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_15"><div class="lbteachers"><abbr title="Ледовских Людмила Адамовна">Ледовских Л. А.</abbr></div></span><span id="Students_lbsubgroup_15"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_30.10.2020_19" class="fulltimetablescels"><span id="Students_lbtt_18"><div class="lbtt">00:00 - 00:00</div></span><span id="Students_lbsubjects_18"><div class="lbsubjects"><abbr title="Информатика">Информатика</abbr></div></span><span id="Students_lbstype_18"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_18"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_18"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_18"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_18"><div class="lbteachers"><abbr title="Поклад Олег Александрович">Поклад О. А.</abbr></div></span><span id="Students_lbsubgroup_18"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_31.10.2020_20" class="fulltimetablescels"><span id="Students_lbtt_19"><div class="lbtt">11:40 - 13:00</div></span><span id="Students_lbsubjects_19"><div class="lbsubjects"><abbr title="Физика">Физика</abbr></div></span><span id="Students_lbstype_19"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_19"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_19"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_19"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_19"><div class="lbteachers"><abbr title="Гаджиева Шайма Ахмедовна">Гаджиева Ш. А.</abbr></div></span><span id="Students_lbsubgroup_19"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_01.11.2020_21" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow5" class="tableeven">
+			<td class="classnumbercol">4</td><td id="Students_cellid_26.10.2020_22" class="fulltimetablescels"></td><td id="Students_cellid_27.10.2020_23" class="fulltimetablescels"></td><td id="Students_cellid_28.10.2020_24" class="fulltimetablescels"></td><td id="Students_cellid_29.10.2020_25" class="fulltimetablescels"></td><td id="Students_cellid_30.10.2020_26" class="fulltimetablescels"></td><td id="Students_cellid_31.10.2020_27" class="fulltimetablescels"><span id="Students_lbtt_14"><div class="lbtt">13:10 - 14:30</div></span><span id="Students_lbsubjects_14"><div class="lbsubjects"><abbr title="Химия">Химия</abbr></div></span><span id="Students_lbstype_14"><div class="lbstype"><abbr title="Лекция">Лекция</abbr></div></span><span id="Students_lbrooms_14"><div class="lbrooms"><abbr title="ДО">&nbsp;в&nbsp;ДО</abbr></div></span><span id="Students_lbbuildings_14"><div class="lbbuildings"><abbr title="ул.Комарова 24">(1-й корпус)</abbr></div></span><span id="Students_lbteacherspost_14"><div class="lbteacherspost"><abbr title="преподаватель">преподаватель,</abbr></div></span><span id="Students_lbteachers_14"><div class="lbteachers"><abbr title="Петрученко Алина Игоревна">Петрученко А. И.</abbr></div></span><span id="Students_lbsubgroup_14"><div class="lbsubgroup">Вся группа</div></span></td><td id="Students_cellid_01.11.2020_28" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow6">
+			<td class="classnumbercol">5</td><td id="Students_cellid_26.10.2020_29" class="fulltimetablescels"></td><td id="Students_cellid_27.10.2020_30" class="fulltimetablescels"></td><td id="Students_cellid_28.10.2020_31" class="fulltimetablescels"></td><td id="Students_cellid_29.10.2020_32" class="fulltimetablescels"></td><td id="Students_cellid_30.10.2020_33" class="fulltimetablescels"></td><td id="Students_cellid_31.10.2020_34" class="fulltimetablescels"></td><td id="Students_cellid_01.11.2020_35" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow7" class="tableeven">
+			<td class="classnumbercol">6</td><td id="Students_cellid_26.10.2020_36" class="fulltimetablescels"></td><td id="Students_cellid_27.10.2020_37" class="fulltimetablescels"></td><td id="Students_cellid_28.10.2020_38" class="fulltimetablescels"></td><td id="Students_cellid_29.10.2020_39" class="fulltimetablescels"></td><td id="Students_cellid_30.10.2020_40" class="fulltimetablescels"></td><td id="Students_cellid_31.10.2020_41" class="fulltimetablescels"></td><td id="Students_cellid_01.11.2020_42" class="fulltimetablescels"></td>
+		</tr><tr id="Students_TableRow8">
+			<td class="classnumbercol">7</td><td id="Students_cellid_26.10.2020_43" class="fulltimetablescels"></td><td id="Students_cellid_27.10.2020_44" class="fulltimetablescels"></td><td id="Students_cellid_28.10.2020_45" class="fulltimetablescels"></td><td id="Students_cellid_29.10.2020_46" class="fulltimetablescels"></td><td id="Students_cellid_30.10.2020_47" class="fulltimetablescels"></td><td id="Students_cellid_31.10.2020_48" class="fulltimetablescels"></td><td id="Students_cellid_01.11.2020_49" class="fulltimetablescels"></td>
+		</tr>
+	</tbody></table>
+            
+</div>
+
+        </div>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        <span style="display: none !important;"><input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""></span><span style="display: none !important;"><input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""></span><span style="display: none !important;"><input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value=""></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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"></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8DD0F08A"></span><span style="display: none !important;"><input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="lUENt8OSvWtYMP9tvcDG8RMROpzB7FAloeGR7vb3c2GrUkW7jZIbjFIxe/jXUmPXe9iPAoM8urptGQ2WXIjza7c3WVpTUQSCWLFGnOZhqQw+UkOWM/GQb82ZRlsHSCSPnSwrqVaKxyPkbLPCs+RhMbDKDaoczB7tx1lh1MYHiB0K5C4T1Heq4Wd9fsNoAWFBi5gk85qjU+0OFjrCM3+gs0HEoWJFBNaWLB1E+fpw+FsBONfVbEqURoZU1xIuajKOzGIT/Vt0rG9ipRmXdTOxvF7xsX1nOizhFYRsrsVU+Mwnn9tYOD6wXZ63T9OrNFvH0B4g8YNdqW64xZUjqElUCA5F68h53NkspIyRTPLo525YuGUPQ0Pomfi9OzBi5GJCtQOwd1YECsA28A0RS6ButphLeOlpSLp0gcqmp0K6sfJ1s3kfSt+5LfgbIXgNcMAWlQFXd7FBF5O6iJ09VIRE3yx7wVlIQtR1bTInFM9t4MvUtKDzvc2rVwYnPsFM7lddnEIX+DAZIpgfwAxWMqL/p8zn7R7hb+VfePFsV86VLtbv3yDbNyDENnrp4INfOslTlXXHYv3vXxpG1cgMVMdJT+OBYrh5EnV8ci0uvoNhAI+zRDq4bWzw9XkVPD3zQBph+dEPqJ9WJCIxIsyHg0LP2+5yuUz44X390NxwnNn48DOPe7WPxpI5LxwcQLZiG/bt7/3SOFW95rYU7j2PU167Y79QKiY3VbDielhr0/2CSt+2BfHsy5fSQxwWrU7kjZNXAe3g3xBQ8OiJW3eiGhRo4tktTuetUJpshXEHxW5k39YyHn509QRVWNyjTcrfJSO0UWCnIjGbILnKDgXV7Xd1pD04zXMlusFN3qKRo/9H/IJHIiuyE4NFrknTe+rbv+VlTkbN8yAb6FY88Iqrx8BBtOwX4U3xaB1xY+l1C6HIJhVTCO9d5x/UV607WTG8lZxATKJKdvDZWei35gkrVUg7UfFhaX2HLeoeIKcqNGjzOOpAKe0umo+eNo2mn4vpa1JdpRSewPkVEynUhI1l9+lOvtfZ5kl5jna8toF3MbUpQ/E87XmT1sLXKzqvtAOAuLayFXfG9sxNIUx6/x0pXU9GjmAkeW3xodpUqY4bnSorxoycaMpMor3vsFRqA0jhw8blIaGrK1FFMwEnnaFDXpi2QpIDgpVOQwwPINAAF2KU36ZqthjmJ4lmTc0agt6Jj5V+bZzQAJwldarL/2xt65bk5S14KtTTZ0VImrg9VCMdZ2Kk4ZM7x/5TdZycD75OY2cQZPff3tLYHZbZBlp2pLTDnHJgkc83l1AgUqiVDn/LaX4OmABObHHfclm77OxpDHDa4HO6pFDdvy8RVriBnvgfWTtMRlN2LgQNmQ/UcDEj0cK1m7ZPDySuzzv0lX8wzFxsOb/flKrTpqSVRYYSqfUi/T86CKc98uevDVYLXykb8e/QVm5T6M421Z4FTh6sjK8/br2JiNBlfxuf1vQAiqKLN/K3ZFW8PCeLI/x2tjC6zt+pGmA0/i8wnIe0kxCnNc7cDifqpRjTnzoPArn90y2HslIx2cWUSOfanUZD064VOB9z+9iczHg7uocRm5MD6Fdry1lErvvVj2QgU3rU1t5S1bW5YVFEJWZJYZn+k4Qj+fqRQtVRJC0uVszI8At6YoXtenI3X4G9pqJmWySgjSS4IiKmJbP6sdTIRqHscZ7Qf0ZNZwB/SdBa8hBFcyUslyBX0G59d4XSXgCNqcTdc5zygngJwR8i1IIAJ8BY1Jnmr1M="></span><span style="display: none !important;"><input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value=""></span></form>
+        <div class="page-footer">
+            <a href="http://smarttable.info/">
+                <img class="imglogomini" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/smart_table_logo_mini.png">
+            </a>
+            <a href="http://yattim.smarttable.info/smarttable.aspx">
+                <abbr title="Кабинет администратора">
+                    <img class="imglogomini" src="./Электронное расписание занятий SmartTable - ГПОУ _Яшкинский техникум технологий и механизации__files/smarttable-page-link.png" style="padding-left: 5px;">
+                </abbr>
+            </a>
+            <div class="copyright">© FrontEndLab</div>
+        </div>
+    </div>
+
+
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span></body></html>

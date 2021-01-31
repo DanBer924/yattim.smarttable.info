@@ -1,0 +1,2469 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 13px;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Roboto';
+}
+    select::-ms-expand{
+    display:none;
+}
+    /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Стиль Body */
+input { 
+    font-family: 'Roboto';
+}
+html,
+body {
+  height: 100%;
+}
+body {
+font-family: 'Roboto';
+font-size: 13px;
+background-color: #F1F1F1;
+color: #555555;
+}
+/* Стиль Header */
+.header {
+    margin: 0 auto;
+    background-color: white;
+    max-width: 1100px; 
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5; 
+}
+/* Стиль Footer */
+.page-wrapper {
+    min-height: 100%;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.content {
+    padding-bottom: 40px;
+}
+.page-footer {
+    margin: 0 auto;
+    background: white;
+    border-top: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    position: absolute;
+    bottom: 0;
+    max-width: 1052px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+/* Верхняя часть Header */
+.divlogo {
+height: 67px;
+padding-top: 14px;
+padding-bottom: 14px;
+padding-left: 32px;
+padding-right: 20px;
+box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5);
+}
+.divorginfo {
+    float: right;
+    text-align: right;
+}
+.smarttabletitle {
+outline: 0px;
+    float: right;
+    font-size: 22px;
+}
+.orginfotitletext {
+float: left;
+    font-size: 13px;
+    display: block;
+    width: 252.5px;
+    height: 37px;
+    overflow: hidden;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: default;
+}
+.loginstatus {
+float: right;
+}
+.imglogo {
+    height: 67px;
+    float: left;
+    box-shadow: -6px 6px 16px -8px rgba(0, 0, 0, 0.4);
+}
+.imglogomini {
+ width: 20px;
+ height: 20px;
+ float: left;
+}
+.copyright {
+    padding-top: 4px;
+    padding-bottom: 3px;
+}
+.imglogovuz {
+    height: 45px;
+    padding-left: 10px;
+}
+/*Авторизация*/
+.loginusers {
+    margin: 0 auto;
+    width: 250px;
+    margin-top: 100px;  
+}
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: visible;
+    width: 120px;
+    background-color: rgba(76,175,80,0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 6px;
+    top: 8px;
+    right: 140%;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(76,175,80,0.7);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/* Стиль меню */
+.menu {
+    text-align: center;
+    display: block;
+    height: 49px;
+
+}
+ul.navbarmenu {
+    list-style-type: none;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.navbarmenu li>a  {
+    float: left;
+    font-size: 13px;
+    outline: none;
+}
+    .navbarmenu li>a {
+        display: block;
+        color: #333;
+        text-align: center;
+        padding-top: 19px;
+        padding-bottom: 14px;
+        text-decoration: none;
+        margin-right: 8px;
+        margin-left: 8px; 
+    }
+        .navbarmenu:hover li>a {
+            
+        }
+        .navbarmenu li>a:hover {
+            border-bottom: 3px solid;
+            border-bottom-color: #03a9f4;
+        }
+        .navbarmenu li>a.active{
+            border-bottom: 3px solid;
+            border-bottom-color: #03a9f4;
+        }
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    border: none;
+    padding-bottom: 3px;
+    z-index: 1;
+}
+    .buttonsettings {
+    width: 25px;
+    height: 25px;
+    margin-top: 12px;
+    background-image: url(../Shared/settings-icon.png);
+    background-color: transparent;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    } 
+    .buttonsettings:hover {
+    background-image: url(../Shared/settings-icon-hover.png);
+    background-color: transparent;
+    } 
+
+    li.dropdown a:hover {
+    border: none;
+    }
+div.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    right: -24px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 185px;
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border-top: 2px solid #E5E5E5;
+}
+.show {
+ display:block !important;
+}
+.dropdown-content a {  
+        color: #333;
+        text-decoration: none;
+        margin-right: 0px;
+        margin-left: 0px; 
+        text-align: left; 
+        display: block; 
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+    }
+        .dropdown-content a:hover{
+            background-color: #4FC3F7;
+            color: white;
+            border: none;
+        }
+        .dropdown-content a.active {
+            background-color: #03a9f4;
+            color: white;
+            border: none;
+        }
+/* Стиль строки поиска и добавления записей */
+.divcreate {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    background: white;
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;  
+}
+.divsearchteachers {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    display: table;
+    padding-top: 6px;
+    padding-bottom: 5px;
+        box-shadow: 0px 6px 8px -8px rgba(0, 0, 0, 0.4);
+}
+
+.divsearch {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    display: table;
+    padding-top: 6px;
+    padding-bottom: 5px;
+        box-shadow: 0px 6px 8px -8px rgba(0, 0, 0, 0.4);
+}
+    .divsearchteachers > input, .divsearch > input, input.textboxsearchmenu {
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #333;
+    }
+    .divsearchteachers > input:focus, .divsearch > input:focus, input.textboxsearchmenu:focus {
+    outline: none;
+    }
+    .divsearchteachers > input:hover, .divsearch > input:hover, input.textboxsearchmenu:hover  {
+    border-color: #03a9f4;
+    }
+    .divsearchteachers > input, .divsearch > select {
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #333;
+    }
+    .divsearchteachers > select:focus, .divsearch > select:focus {
+    outline: none;
+    }
+    .divsearchteachers > select:hover, .divsearch > select:hover {
+    border-color: #03a9f4;
+    }
+.textboxsearch {
+    width: 307px;
+    padding: 7px 7px 7px 7px;
+    margin-left: 32px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    float: left;
+}
+.textboxsearchmenu {
+    width: 155px;
+    padding: 4px 7px 4px 7px;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    float: left;
+}
+.dropdownlistsearch {
+    width: 730px;
+    padding: 7px 30px 7px 6px;
+    margin-left: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #555555; 
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 702px;
+    background-color: white;
+}
+    .dropdownlistsearch:focus {
+    outline: none;
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistsearch:hover {
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+.dropdownlistcalltable {
+    width: 310px;
+    padding: 7px 0px 7px 8px;
+    border: none; 
+    font-size: 13px;
+    color: #555555; 
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 282px;
+    background-color: white;
+}
+    .dropdownlistcalltable:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistcalltable:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .blockday {
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #c6c6c6;
+    display: table;
+    float: left;
+}
+    .blockday:focus {
+    outline: none;
+    border: 1px solid #03a9f4;
+    }
+    .blockday:hover {
+    border: 1px solid #03a9f4;
+    }
+        .blockcalltablebuildings {
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    border: 1px solid #c6c6c6;
+    display: table;
+    float: left;
+}
+    .blockcalltablebuildings:focus {
+    outline: none;
+    border: 1px solid #03a9f4;
+    }
+    .blockcalltablebuildings:hover {
+    border: 1px solid #03a9f4;
+    }
+.dropdownlistroomsbuilings {
+    width: 292px;
+    padding: 7px 35px 7px 8px;
+    border: none; 
+    font-size: 13px;
+    color: #555555; 
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 265px;
+    background-color: white;
+}
+    .dropdownlistroomsbuilings:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistroomsbuilings:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .blockbuildings {
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+    border: 1px solid #c6c6c6;
+    display: table;
+    float: left;
+}
+    .blockbuildings:focus {
+    outline: none;
+    border: 1px solid #03a9f4;
+    }
+    .blockbuildings:hover {
+    border: 1px solid #03a9f4;
+    }
+.dropdownlistrooms {
+    width: 270px;
+    padding: 7px 35px 7px 8px;
+    border: none; 
+    font-size: 13px;
+    color: #555555; 
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 242px;
+    background-color: white;
+}
+    .dropdownlistrooms:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistrooms:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .blockrooms {
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #c6c6c6;
+    display: table;
+    float: left;
+}
+    .blockrooms:focus {
+    outline: none;
+    border: 1px solid #03a9f4;
+    }
+    .blockrooms:hover {
+    border: 1px solid #03a9f4;
+    }
+.dropdownlistfaculty {
+    width: 276px;
+    font-size: 13px;
+    color: #555555;
+    border: none; 
+    padding: 7px 35px 7px 8px;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 249px;
+    background-color: white;
+}
+    .dropdownlistfaculty:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistfaculty:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+.dropdownlistteachers {
+    width: 199px;
+    font-size: 13px;
+    color: #555555;
+    border: none; 
+    padding: 7px 35px 7px 8px;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 172px;
+    background-color: white;
+}
+    .dropdownlistteachers:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistteachers:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .blockfaculty {
+    margin-left: 32px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #c6c6c6;
+    display: table;
+    float: left;
+}
+    .blockfaculty:focus {
+    outline: none;
+    border: 1px solid #03a9f4;
+    }
+    .blockfaculty:hover {
+    border: 1px solid #03a9f4;
+    }
+.blockteachers {
+    margin-left: 4px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 22px;
+    display: table;
+    float: right;
+}
+    .blockteachers label {
+        cursor: pointer;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        margin-left: 1px;
+        background-color: #b5b5b5;
+        color: white;
+    }
+        .blockteachers label:hover {
+            background-color: #03a9f4;
+            color: white;
+        }
+    .blockteachers input:checked + label {
+        background-color: #555555;
+        color: white;
+    }
+    .blockteachers label:nth-child(4) {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+    .blockteachers input {
+        display: none;
+    }
+.divformview {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.labelformviewtitle{
+    padding-top: 5px;
+    font-size: 15px;
+    display: block;
+    font-weight: bold;
+}
+.labelformviewtitleclassnumber{
+    font-size: 15px;
+    display: block;
+    font-weight: bold;
+}
+.labelformviewtitlesearch{
+    font-size: 13px;
+    padding: 0px 8px 0px 8px;
+    border-right: 1px solid #c6c6c6;
+}
+.labelformviewtitleweaks{
+    font-size: 13px;
+    padding: 0px 8px 0px 8px;
+    border-right: 1px solid #c6c6c6;
+}
+.labelformviewtitlecalltable{
+    font-size: 13px;
+    padding: 0px 8px 0px 8px;
+    border-right: 1px solid #c6c6c6;
+}
+.labelformviewtitlegroups{
+    font-size: 13px;
+    display: block;
+    font-weight: bold;
+}
+.labelformview {
+    margin-top: 4px;
+    font-size: 14px;
+}
+.labelformviewtablecopy {
+    font-size: 12px;
+    padding-left: 1px;
+}
+labelformviewgroups {
+    margin-top: 0px;
+    font-size: 15px;
+}
+.textboxformview {
+    width: 300px;
+    padding: 6px 6px 6px 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.textboxformviewdate {
+    width: 300px;
+    padding: 6px 6px 6px 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.textboxformviewgroups {
+    width: 51px;
+    padding: 3px 4px 0px 4px;
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dropdownlistnew {
+    width: 314px;
+    height: 31px;
+    padding: 6px 35px 7px 6px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #555555; 
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 286px;
+    background-color: white;
+}
+    .dropdownlistnew:focus {
+    outline: none;
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistnew:hover {
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+
+.divformviewtextbox {
+    display: inline-block;
+    width: 341px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+   .divformviewtextbox > input {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divformviewtextbox > input:focus {
+    outline: none;
+    border-color: #03a9f4;
+    }
+    .divformviewtextbox > input:hover {
+    border-color: #03a9f4;
+    }
+     .divformviewtextbox > select {
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #333;
+    }
+    .divformviewtextbox > select:focus {
+    outline: none;
+    border-color: #03a9f4;
+    }
+    .divformviewtextbox > select:hover {
+    border-color: #03a9f4;
+    } 
+.divformviewtextboxgroups {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+   .divformviewtextboxgroups > input {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divformviewtextboxgroups > input:focus {
+    outline: none;
+    }
+    .divformviewtextboxgroups > input:hover {
+    border-color: #03a9f4;
+    }
+     .divformviewtextboxgroups > select {
+    border: 1px solid #c6c6c6;
+    font-size: 13px;
+    color: #333;
+    }
+    .divformviewtextboxgroups > select:focus {
+    outline: none;
+    }
+    .divformviewtextboxgroups > select:hover {
+    border-color: #03a9f4;
+    } 
+
+.divformviewbuttoncreate {
+    width: 177px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-right: 4px;
+    float: right;
+}
+.divtablecopy {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    float: right;
+    width: 670px;
+    border-bottom: 1px solid #03a9f4;
+    margin-right: 4px;
+    display: inline-block;
+}
+.formview {
+    width: 100%;
+}
+.formviewgroups {
+    width: 186px;
+}
+.formviewbuttoncreate {
+    width: 177px;
+    height: 31px; 
+    border: 0px solid #c6c6c6; 
+    background: #03a9f4; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+.formviewbuttoncreate:focus {
+    border: 1px solid #03a9f4; 
+}
+.formviewbuttoncreate:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.formviewbuttonsave {
+    width: 105px;
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #03a9f4; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+.formviewbuttonsave:focus {
+    border: 1px solid #03a9f4; 
+}
+.formviewbuttonsave:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.formviewbuttontablecopy {
+    width: 120px;
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #f0f0f0; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+.formviewbuttontablecopy:focus {
+    border: 1px solid #03a9f4; 
+}
+.formviewbuttontablecopy:hover {
+    background: #03a9f4;
+    cursor: pointer;
+}
+.formviewbuttoncancel {
+    width: 68px;
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #03a9f4; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+.formviewbuttoncancel:focus {
+    border: 1px solid #03a9f4; 
+}
+.formviewbuttoncancel:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+/* Стиль списка */
+.listview {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5; 
+     
+}
+.listviewgroups {
+    margin-right: -1px;
+    /*border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;*/
+    margin-left: 1px;
+}
+.divlistviewbuttonedit {
+    display: inline;
+    float: right;
+    padding-top: 1px;
+}
+.listviewbuttonedit {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/edit-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    margin-top: 3px;
+}
+    .listviewbuttonedit:focus {
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+}
+    .listviewbuttonedit:hover {
+    cursor: pointer;
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+}
+    .listviewbuttonreport {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/print-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    margin-top: 3px;
+}
+    .listviewbuttonreport:focus {
+    background-image: url(../Shared/print-icon-hover.png);
+    background-color: transparent;
+}
+    .listviewbuttonreport:hover {
+    cursor: pointer;
+    background-image: url(../Shared/print-icon-hover.png);
+    background-color: transparent;
+}
+
+    .listviewbuttoneditgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/edit-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+    .listviewbuttoneditgroups:focus {
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+    .listviewbuttoneditgroups:hover {
+    cursor: pointer;
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat; 
+}
+.listviewLabelSmall {
+    font-size: 13px;
+    color: #9E9E9E;
+    line-height: 1.4em;
+}
+.divlistviewitemtemplate /*Шаблон для нечетные строк*/ {
+    padding-left: 8px;
+    padding-right: 4px;
+    background: white;
+    border-bottom: 1px solid #E5E5E5;
+}
+.divlistviewitemtemplategroups {
+    padding-left: 5px;
+    padding-right: 4px;
+    padding-top: 2px;
+    background: white;
+    border-bottom: 1px solid #E5E5E5;
+    height: 24px;
+    background: rgba(158, 158, 158, 0.11);
+}
+.divlistviewitemtemplatelabel {
+    font-size: 13px;
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    color: #9E9E9E;
+}
+ .divlistviewitemtemplatelabel a {
+    color: #555555;
+    }
+    .divlistviewitemtemplatelabel a:hover {
+    color: #03a9f4;
+    }
+    .divlistviewitemtemplatelabel a.active {
+    color: #03a9f4;
+    } 
+.divlistviewitemtemplategroupslabel {
+    font-size: 13px;
+    display: inline-block;
+    color: #555555;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    white-space: nowrap;
+}
+  .divlistviewitemtemplategroupslabel a {
+    color: #555555;
+    }
+    .divlistviewitemtemplategroupslabel a:hover {
+    color: #03a9f4;
+    }
+    .divlistviewitemtemplategroupslabel a.active {
+    color: #03a9f4;
+    font-weight: bold;
+    }     
+
+.divlistviewalternatingitemtemplate /*Шаблон для четных строк*/ {
+    padding-left: 8px;
+    padding-right: 4px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    background: #f5f5f5;
+}
+.divlistviewalternatingitemtemplategroups {
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-right: 4px;
+    background: white;
+    border-bottom: 1px solid #E5E5E5;
+    height: 24px;
+}
+.divlistviewalternatingitemtemplatelabel {
+    font-size: 13px;
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    color: #9E9E9E;
+}
+.divlistviewalternatingitemtemplate a {
+    color: #555555;
+}
+.divlistviewalternatingitemtemplate a:hover {
+    color: #03a9f4;
+}
+.divlistviewalternatingitemtemplate a.active {
+    color: #03a9f4;
+}
+.divlistviewalternatingitemtemplategroupslabel {
+    font-size: 13px;
+    display: inline-block;
+    color: #555555;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    white-space: nowrap;
+}
+.divlistviewalternatingitemtemplategroupslabel a {
+    color: #555555;
+}
+.divlistviewalternatingitemtemplategroupslabel a:hover {
+    color: #03a9f4;
+}
+.divlistviewalternatingitemtemplategroupslabel a.active {
+    color: #03a9f4;
+    font-weight: bold;
+}
+.divlistvieweditItemtemplate /*Шаблон редактирования*/ {
+    background: white;
+    border-bottom: 1px solid #FFBF3E;
+}
+.dropdownlistedit {
+    width: 315px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.divlistvieweditItemtemplatelabel {
+    display: inline-block;
+    width: 340px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+    .divlistvieweditItemtemplatelabel input {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divlistvieweditItemtemplatelabel > input:focus {
+    outline: none;
+    }
+    .divlistvieweditItemtemplatelabel > input:hover {
+    border-color: #FFBF3E;
+    }
+    .divlistvieweditItemtemplatelabel select {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divlistvieweditItemtemplatelabel > select:focus {
+    outline: none;
+    }
+    .divlistvieweditItemtemplatelabel > select:hover {
+    border-color: #FFBF3E;
+    }
+
+.divlistvieweditItemtemplatelabelgroups {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+    .divlistvieweditItemtemplatelabelgroups input {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divlistvieweditItemtemplatelabelgroups > input:focus {
+    outline: none;
+    border-color: #FFBF3E;
+    }
+    .divlistvieweditItemtemplatelabelgroups > input:hover {
+    border-color: #FFBF3E;
+    }
+    .divlistvieweditItemtemplatelabelgroups select {
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 13px;
+    }
+    .divlistvieweditItemtemplatelabelgroups > select:focus {
+    outline: none;
+    border-color: #FFBF3E;
+    }
+    .divlistvieweditItemtemplatelabelgroups > select:hover {
+    border-color: #FFBF3E;
+    }
+
+.divlistviewbuttonsavedelcancel {
+    float: right;
+    padding-top: 2px;
+    padding-right: 3px; 
+}
+.listviewbuttonsave {
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #FFDC95; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+    .listviewbuttonsave:focus {
+    border: 1px solid #FFBF3E;
+}
+    .listviewbuttonsave:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.listviewbuttondel {
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #FFDC95; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+    .listviewbuttondel:focus {
+    border: 1px solid #FFBF3E; 
+}
+    .listviewbuttondel:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.listviewbuttoncancel {
+    height: 31px;
+    border: 0px solid #c6c6c6; 
+    background: #FFDC95;
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+}
+    .listviewbuttoncancel:focus {
+    border: 1px solid #FFBF3E; 
+}
+    .listviewbuttoncancel:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.divlistviewemptydatatemplate /*Шаблон отсутствия записей*/ {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #E5E5E5;
+    display: table;
+}
+.lbempty {
+    margin-left: 8px;
+    margin-right: 5px;
+    margin-top: 17px;
+    margin-bottom: 16px;
+    display: block;
+}
+/* Стиль списка */
+.tablesmarttables {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 1102px;
+    margin-left: -1px;
+    margin-bottom: -1px;
+}
+.tablesmarttables th {
+    height: 50px;
+    font-size: 13px;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 13px;
+}
+.tablesmarttables td {
+    vertical-align: top;
+}
+.tablesmarttables td, .tablesmarttables th {   
+    min-width: 110px;
+    max-width: 110px;
+    border: 1px solid #E5E5E5;
+}
+th.classnumbercol, td.classnumbercol {
+    max-width: 25px;
+    min-width: 25px;
+    text-align: center;
+    padding-top: 3px;
+}
+th.classgroupscol, td.classgroupscol {
+    max-width: 163px;
+    min-width: 163px;
+    vertical-align: top;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 -2px 20px -4px rgba(0, 0, 0, 0.5);
+}
+classgroupscol {
+max-height: 0px;
+min-height: 0px;
+}
+.lbtt {
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.lbevantsname {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbdesc {
+    word-wrap: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+    height: 53px;
+}
+.lbroomsevents {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbsubjects {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbteacherspost {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbstype {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 72px;
+    overflow: hidden;
+    font-size: 12px;
+    float: left;
+    padding-left: 3px;
+    padding-top: 3px;
+    cursor: default;
+}
+.lbrooms {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbbuildings {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbsubgroup {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+}
+.lbttteachers {
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.lbsubjectsteachers {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbteacherspostteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbgroupsteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+    text-align: center;
+}
+.lbteachersteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbstypeteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 72px;
+    overflow: hidden;
+    font-size: 12px;
+    float: left;
+    padding-left: 3px;
+    padding-top: 3px;
+    cursor: default;
+}
+.lbroomsteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbbuildingsteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+.lbsubgroupteachers {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 4px;
+}
+.fulltimelistviewgroups {
+    margin-left: -1px;
+    max-height: 1007px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.dropdownlistweeks {
+    width: 662px;
+    padding: 7px 35px 7px 8px;
+    border: none;
+    font-size: 13px;
+    color: #555555;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 634px;
+    background-color: white;
+}
+    .dropdownlistweeks:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistweeks:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistweeksstudents {
+    width: 846px;
+    padding: 10px 35px 10px 8px;
+    border: none;
+    font-size: 13px;
+    color: #555555;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 818px;
+    background-color: white;
+    cursor: pointer;
+}
+    .dropdownlistweeksstudents:focus {
+    outline: none;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .dropdownlistweeksstudents:hover {
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+
+    .blockweeks {
+    margin-left: 1px;
+    border: 1px solid #03a9f4;
+    display: table;
+    float: left;
+}
+    .blockweeks:focus {
+    outline: none;
+    border: 1px solid rgba(139,195,74,0.4);
+    }
+    .blockweeks:hover {
+    }
+
+.fulltimepaneltablesbuttontablesback {
+    width: 185px;
+    height: 37px;
+    border: 0px solid #c6c6c6;
+    background: #03a9f4;
+    outline: none;
+    color: #333;
+    font-size: 13px;
+    float: left;
+    color: white;
+}
+.fulltimepaneltablesbuttontablesback:focus {
+    border: 1px solid #03a9f4; 
+}
+.fulltimepaneltablesbuttontablesback:hover {
+    background: #9E9E9E;
+    cursor: pointer;
+}
+.fulltimepaneltablesbuttontablescopy {
+    width: 177px;
+    height: 31px; 
+    border: 0px solid #c6c6c6; 
+    background: #03a9f4; 
+    outline: none;
+    color: #333;
+    font-size: 13px; 
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 4px;
+}
+.fulltimepaneltablesbuttontablescopy:focus {
+    border: 1px solid #03a9f4; 
+}
+.fulltimepaneltablesbuttontablescopy:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.tablesmarttablesgroups input.fulltimepaneltablesbuttontablesnew {
+    left: 75px;
+}
+.tablesmarttablesgroupsa input.fulltimepaneltablesbuttontablesnew {
+    left: 75px;
+}
+.fulltimepaneltablesbuttontablesgroups {
+    height: 20px;
+    width: 20px; 
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/groups-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 102px;
+}
+    .fulltimepaneltablesbuttontablesgroups:focus {
+    background-image: url(../Shared/groups-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesgroups:hover {
+    cursor: pointer;
+    background-image: url(../Shared/groups-icon-hover.png);
+    background-color: transparent;
+}
+.fulltimepaneltablesbuttontablesedit {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/edit-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 3px;
+}
+    .fulltimepaneltablesbuttontablesedit:focus {
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesedit:hover {
+    cursor: pointer;
+    background-image: url(../Shared/edit-icon-hover.png);
+    background-color: transparent;
+}
+.fulltimepaneltablesbuttontablesnew {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/new-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 102px;
+}
+    .fulltimepaneltablesbuttontablesnew:focus {
+    background-image: url(../Shared/new-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesnew:hover {
+    cursor: pointer;
+    background-image: url(../Shared/new-icon-hover.png);
+    background-color: transparent;
+}
+.fulltimepaneltablesbuttontablesinsertnew {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/check-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 74px;
+}
+    .fulltimepaneltablesbuttontablesinsertnew:focus {
+    background-image: url(../Shared/check-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+}
+    .fulltimepaneltablesbuttontablesinsertnew:hover {
+    cursor: pointer;
+    background-image: url(../Shared/check-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertnewgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/check-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 134px;
+    margin-top: -26px;
+}
+    .fulltimepaneltablesbuttontablesinsertnewgroups:focus {
+    background-image: url(../Shared/check-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertnewgroups:hover {
+    cursor: pointer;
+    background-image: url(../Shared/check-icon-hover.png);
+    background-color: transparent;
+}
+.fulltimepaneltablesbuttontablesinsertcancelnew {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/cancel-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 101px;
+}
+    .fulltimepaneltablesbuttontablesinsertcancelnew:focus {
+     background-image: url(../Shared/cancel-icon-hover.png);
+     background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertcancelnew:hover {
+    cursor: pointer;
+    background-image: url(../Shared/cancel-icon-hover.png);
+    background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertcancelnewgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/cancel-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 161px;
+    margin-top: -26px;
+}
+    .fulltimepaneltablesbuttontablesinsertcancelnewgroups:focus {
+     background-image: url(../Shared/cancel-icon-hover.png);
+     background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertcancelnewgroups:hover {
+    cursor: pointer;
+    background-image: url(../Shared/cancel-icon-hover.png);
+    background-color: transparent;
+}
+.fulltimepaneltablesbuttontableseditdel {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/del-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 3px;
+}
+    .fulltimepaneltablesbuttontableseditdel:focus {
+     background-image: url(../Shared/del-icon-hover.png);
+     background-color: transparent;
+}
+    .fulltimepaneltablesbuttontableseditdel:hover {
+                cursor: pointer;
+                background-image: url(../Shared/del-icon-hover.png);
+                background-color: transparent;
+            }
+    .fulltimepaneltablesbuttontableseditdelgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/del-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 107px;
+    margin-top: -26px;
+}
+    .fulltimepaneltablesbuttontableseditdelgroups:focus {
+    background-image: url(../Shared/del-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+    .fulltimepaneltablesbuttontableseditdelgroups:hover {
+                cursor: pointer;
+                background-image: url(../Shared/del-icon-hover.png);
+                background-color: transparent;
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+            }
+    .fulltimepaneltablesbuttontablesinsertedit {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/check-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 74px;
+}
+    .fulltimepaneltablesbuttontablesinsertedit:focus {
+     background-image: url(../Shared/check-edit-icon-hover.png);
+     background-color: transparent;
+}
+        .fulltimepaneltablesbuttontablesinsertedit:hover {
+            cursor: pointer;
+            background-image: url(../Shared/check-edit-icon-hover.png);
+            background-color: transparent;
+        }
+    .fulltimepaneltablesbuttontablesinserteditgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/check-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 134px;
+    margin-top: -26px;
+}
+    .fulltimepaneltablesbuttontablesinserteditgroups:focus {
+    background-image: url(../Shared/check-edit-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+        .fulltimepaneltablesbuttontablesinserteditgroups:hover {
+            cursor: pointer;
+            background-image: url(../Shared/check-edit-icon-hover.png);
+            background-color: transparent;
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+        }
+
+    .fulltimepaneltablesbuttontablesinsertcanceledit {
+    height: 20px;
+    width: 20px;
+    border: 0px solid #c6c6c6;
+    background: white;
+    outline: none;
+    background-image: url(../Shared/cancel-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    left: 101px;
+}
+    .fulltimepaneltablesbuttontablesinsertcanceledit:focus {
+     background-image: url(../Shared/cancel-edit-icon-hover.png);
+     background-color: transparent;
+}
+    .fulltimepaneltablesbuttontablesinsertcanceledit:hover {
+    cursor: pointer;
+    background-image: url(../Shared/cancel-edit-icon-hover.png);
+    background-color: transparent;
+}
+   .fulltimepaneltablesbuttontablesinsertcanceleditgroups {
+    height: 20px; 
+    width: 20px;
+    border: 0px solid #c6c6c6; 
+    background: white; 
+    outline: none;
+    background-image: url(../Shared/cancel-icon.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 161px;
+    margin-top: -26px;
+}
+    .fulltimepaneltablesbuttontablesinsertcanceleditgroups:focus {
+    background-image: url(../Shared/cancel-edit-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+.fulltimepaneltablesbuttontablesinsertcanceleditgroups:hover {
+    cursor: pointer;
+    background-image: url(../Shared/cancel-edit-icon-hover.png);
+    background-color: transparent;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+td.tablesmarttablesnew {
+    height: 143px;
+    position: relative;
+    border-bottom: 1px solid #03a9f4;
+}
+td.tablesmarttablesedit {
+    height: 143px;
+    position: relative;
+    border-bottom: 1px solid #ffbf3e;
+}   
+td.tablesmarttablesgroups {
+    height: 143px;
+    position: relative;
+
+}
+td.tablesmarttablesgroupsa {
+    height: 143px;
+    position: relative;
+}
+td.tablesmarttablesgroupscurrent {
+    height: 143px;
+    position: relative;
+    background-color: rgba(3, 169, 244, 0.3);
+}
+.panelfulltimesmarttables {
+    width: 1100px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;    
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    min-height: 67px;
+}
+.tbsubjectsfulltime {
+    width: 109px;
+    height: 14px;
+    padding: 1px 4px 0px 4px;
+    margin-top: 2px;
+    margin-left: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 12px;
+}
+    .tbsubjectsfulltime:hover {
+    border-color: #FFBF3E;
+    }
+    .tbsubjectsfulltime:focus {
+    outline: none;
+    border-color: #FFBF3E;
+    }
+.tbsubjectsfulltimenew {
+    width: 109px;
+    height: 14px;
+    padding: 1px 4px 0px 4px;
+    margin-top: 2px;
+    margin-left: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 12px;
+}
+    .tbsubjectsfulltimenew:hover {
+    border-color: #03a9f4;
+    }
+    .tbsubjectsfulltimenew:focus {
+    outline: none;
+    border-color: #03a9f4;
+    }
+
+.tbgroupsfulltime {
+    width: 109px;
+    height: 14px;
+    padding: 1px 4px 1px 4px;
+    margin-top: 2px;
+    margin-left: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #c6c6c6;
+    color: #555555;
+    font-size: 12px;
+    background: white;
+}
+.autocompletelist {
+}
+    ul.autocompletelist li {
+    float: none;
+    }
+.ddlsubjectsfulltime {
+    width: 119px;
+    height: 18px;
+    padding: 0px 24px 0px 4px;
+    -moz-box-sizing: border-box;
+    margin-top: 2px;
+    margin-left: 3px;
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 12px;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: 100px;
+    background-color: white;
+}
+    .ddlsubjectsfulltime:hover {
+    border-color: #FFBF3E;
+    background-image: url(../Shared/down-arrow-edit-icon-hover.png);
+    background-color: transparent;
+    }
+    .ddlsubjectsfulltime:focus {
+    outline: none;
+    border-color: #FFBF3E;
+    background-image: url(../Shared/down-arrow-edit-icon-hover.png);
+    background-color: transparent;
+    }
+.ddlsubjectsfulltimenew {
+    width: 119px;
+    height: 18px;
+    padding: 0px 24px 0px 4px;
+    margin-top: 2px;
+    margin-left: 3px;
+    border: 1px solid #c6c6c6;
+    color: #333;
+    font-size: 12px;
+    background-image: url(../Shared/down-arrow-icon.png);
+    background-color: transparent;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: 100px;
+    background-color: white;
+}
+    .ddlsubjectsfulltimenew:hover {
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+    .ddlsubjectsfulltimenew:focus {
+    outline: none;
+    border-color: #03a9f4;
+    background-image: url(../Shared/down-arrow-icon-hover.png);
+    background-color: transparent;
+    }
+.labeltitle {
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.fulltimepaneltablescheckboxlistsubgroups {
+    width: 10px;
+}
+.fulltimetablescels {
+    height: 143px;
+    position: relative;
+}
+.currentdaycell {
+    height: 143px;
+    position: relative;
+    background-color: rgba(3, 169, 244, 0.3);
+}
+.currentdayhead {
+    background-color: #03a9f4;
+}
+.validateemptyfield {
+    width: 109px;
+    height: 14px;
+    border-top: 1px solid #e13654;
+    border-bottom: 1px solid #e13654;
+    border-left: 1px solid #e13654;
+    border-right: 1px solid #e13654;
+}
+   .formviewgroups td {
+    border: none;
+    border-bottom: 1px solid #E5E5E5;
+    }
+.ui-widget-content {
+    margin-top: 2px;
+    border: 1px solid #2b85f3;
+    border-top: 1px solid #2b85f3;
+    color: #333;
+    overflow-y: scroll;
+    max-height: 80%;
+}
+.ui-state-focus {
+    border: 1px solid #2b85f3 !important;
+    background: #2b85f3 !important;
+    color: white !important;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+   select::-ms-expand{
+    display:none;
+}
+.checkboxlistpanelcopy {
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+.divteacherssearch {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+.divdate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-right: 3px;
+    font-weight: normal;
+}
+.tableeven {
+    background: rgba(0, 188, 212, 0.12)
+}
+.tableheaderrow {
+background-color: #666666;
+color: white;
+}
+.hidden {
+    display: none !important;
+}
+.ui-autocomplete-category {
+    font-weight: 700;  
+    pointer-events: none;
+    opacity: 0.7;
+    background-color: rgba(158, 158, 158, 0.29);
+}
+.promobutton {
+    position: absolute;
+    right: -25px;
+    writing-mode: vertical-rl;
+    height: 105px;
+    top: 0px;
+    background-color: #E91E63;
+    padding: 19.5px 5px;
+    color: white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 4px 1px 14px -4px #E91E63;
+}
+.promobuttona {
+    position: relative;
+    display: block;
+}
+.socialbutton {
+    position: relative;
+}
+div.socialbutton > a {
+    position: absolute;
+    right: -20px;
+    top: 145px;
+}
+
+.cardsleft {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 546px;
+    box-shadow: -6px 0px 16px -8px rgba(0, 0, 0, 0.2);
+    border-bottom: 0px solid #E5E5E5;
+    transition: 0.5s;
+    display: inline-block;
+    padding: 0px;
+    border-radius: 0 0 2px 2px;
+    cursor: default;
+}
+.cardsright {
+    float: left;
+    margin-top: 10px;
+    width: 546px;
+    box-shadow: 6px 0px 16px -8px rgba(0, 0, 0, 0.2);
+    border-bottom: 0px solid #E5E5E5;
+    transition: 0.5s;
+    display: inline-block;
+    padding: 0px;
+    background: white;
+    border-radius: 0 0 2px 2px;
+    cursor: default;
+}
+.cardsright:hover {
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+}
+.cardsleft:hover {
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+}
+.cardblock1 {
+    padding-top: 25px;
+    padding-bottom: 24px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #9E9E9E;
+    border-bottom: 1px solid #E5E5E5;
+    background: white;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cardblock2 {
+    float: right;
+    padding: 10px;
+    color: #9E9E9E;
+    text-align: right;
+    padding-right: 25px;
+}
+.cardlabel {
+    font-size: 14px;
+    font-weight: 700;
+}
+.cardlistview {
+    width: 1102px;
+    margin: 0 auto;
+    clear: both;
+    display: table;
+    margin-bottom: 10px;
+}
+.blur {
+    background-image: linear-gradient(to bottom right, rgba(233, 30, 99, 0.2), rgba(3, 169, 244, 0.2));
+    filter: blur(5px);
+    transition: 7s;
+    opacity: 0.4;
+}
+.speachpromo {
+    position: absolute;
+    right: 1100px;
+    writing-mode: vertical-rl;
+    height: 126px;
+    top: 231px;
+    background-color: #4CAF50;
+    padding: 19.5px 7px 19.5px 7px;
+    color: white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 4px 1px 14px -4px #4CAF50;
+    z-index: -1;
+    transform: rotate(180deg);
+}
+.speachpromoicon {
+    left: 7px;
+    position: absolute;
+    bottom: 21px;
+}
+    @-moz-document url-prefix() {
+        .ddlsubjectsfulltime, .ddlsubjectsfulltimenew {
+        padding: 0px 24px 0px 0px;
+    }
+
+    .dropdownlistweeks {
+        padding: 5px 30px 5px 6px;
+    }
+
+    .promobutton {
+        right: -25px;
+    }
+}
+@-moz-document url-prefix() {
+    .speachpromo {
+        right: 1100px;
+        padding: 19.5px 6px 19.5px 4px;
+    }
+
+    .speachpromoicon {
+        left: 9px;
+    }
+
+
+    .ddlsubjectsfulltime, .ddlsubjectsfulltimenew {
+        padding: 0px 24px 0px 0px;
+    }
+
+    .dropdownlistweeks, .dropdownlistcalltable, .dropdownlistroomsbuilings, .dropdownlistrooms, .dropdownlistnew, .dropdownlistfaculty, .dropdownlistteachers {
+        padding: 5px 35px 5px 8px;
+    }
+
+    .dropdownlistweeksstudents {
+        padding: 10px 0px 8px 8px;
+    }
+
+    .dropdownlistweeks {
+        width: 662px;
+        background-position: 634px;
+    }
+
+    .dropdownlistweeksstudents {
+        width: 843px;
+        background-position: 816px;
+    }
+
+    .dropdownlistroomsbuilings {
+        width: 289px;
+        background-position: 261px;
+    }
+
+    .dropdownlistteachers {
+        width: 196px;
+        background-position: 169px;
+    }
+
+    .dropdownlistrooms {
+        width: 268px;
+        background-position: 240px;
+    }
+
+    .blockweeks {
+        width: 912px;
+    }
+
+    .textboxsearch {
+        padding: 6px 7px 6px 7px;
+    }
+
+    .textboxsearchmenu {
+        padding: 3px 7px 3px 7px;
+    }
+
+    .fulltimelistviewgroups {
+        margin-left: 0px;
+    }
+
+    .listviewgroups {
+        border-left: 0px solid #E5E5E5;
+    }
+}
+#vk_like {
+    float: left;
+    margin-top: 15px;
+    width: 162px !important;
+}
+
+.is_overlay { 
+    display: block; 
+    width: 100%; 
+    height: 100%;
+    opacity: 1; 
+}
+#trailer {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	overflow: hidden;
+}
+#trailer > video {
+	position: absolute;
+	top: 0;
+	left: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; height: auto;
+}
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+      .page-footer {
+        display: none;
+    }
+    .th.classgroupscol, td.classgroupscol {
+        box-shadow: 0 0px 14px -4px rgba(0, 0, 0, 0.5);
+    }
+    .promobutton {
+        display: none;
+    }
+    .socialbutton {
+        display: none;
+    }
+    #trailer {
+        display: none;
+    }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+      .page-footer {
+        display: none;
+    }
+    .th.classgroupscol, td.classgroupscol {
+        box-shadow: 0 0px 14px -4px rgba(0, 0, 0, 0.5);
+    }
+    .promobutton {
+        display: none;
+    }
+    .socialbutton {
+        display: none;
+    }
+    #trailer {
+        display: none;
+    }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+      .page-footer {
+        display: none;
+    }
+    .th.classgroupscol, td.classgroupscol {
+        box-shadow: 0 0px 14px -4px rgba(0, 0, 0, 0.5);
+    }
+    .promobutton {
+        display: none;
+    }
+    .socialbutton {
+        display: none;
+    }
+    #trailer {
+        display: none;
+    }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+    abbr[title] {
+        /*position: relative;*/
+        /* ensure consistent styling across browsers */
+        text-decoration: underline dotted;
+    }
+
+        abbr[title]:hover::after,
+        abbr[title]:focus::after {
+            content: attr(title);
+            /* position tooltip like the native one */
+            position: absolute;
+            left: 1px;
+            /*bottom: -30px;*/
+            width: auto;
+            white-space: nowrap;
+            /* style tooltip */
+            background-color: rgba(237, 59, 121, 0.8);
+            color: #fff;
+            border-radius: 3px;
+            box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4);
+            font-size: 14px;
+            padding: 4px 5px;
+            z-index: 1000;
+            margin-top: -3px;
+        }
+
+    .page-footer {
+        display: none;
+    }
+    .th.classgroupscol, td.classgroupscol {
+        box-shadow: 0 0px 14px -4px rgba(0, 0, 0, 0.5);
+    }
+    .promobutton {
+        display: none;
+    }
+    .socialbutton {
+        display: none;
+    }
+    #trailer {
+        display: none;
+    }
+}
+
+
